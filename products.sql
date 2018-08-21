@@ -4,7 +4,7 @@ CREATE DATABASE bamazon_DB;
 USE bamazon_DB;
 
 CREATE TABLE products(
-  id INT NOT NULL AUTO_INCREMENT,
+  item_id INT NOT NULL AUTO_INCREMENT,
   product_name VARCHAR(50) NOT NULL,
   department_name VARCHAR(30) NOT NULL,
   price INT default 0,
@@ -19,7 +19,7 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Toilet Paper", "household essentials", 12, 150);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Television", "electronics", 600, 20);
+VALUES ("Television", "electronics", 600, 15);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Madden 2018", "electronics", 60, 40);
@@ -28,17 +28,17 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Wireless Headphones", "electronics", 160, 35);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Yeti Cooler", "outdoor living", 350, 20);
+VALUES ("Yeti Cooler", "outdoor living", 350, 25);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Grill", "outdoor living", 400, 12);
+VALUES ("Grill", "outdoor living", 400, 25);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Lawn Chair", "outdoor living", 35, 60);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Ziploc Bags", "household essentials", 5.50, 175);
+VALUES ("Ziploc Bags", "household essentials", 5, 175);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Soccerball", "sports", 300, 15);
+VALUES ("Soccerball", "sports", 25, 50);
 
