@@ -47,6 +47,7 @@ function checkInventory(id, units) {
                 console.log("Total cost of order is $" + (units * res.price) +
                     "\n Thanks for shopping! Enjoy your purchase!");
                 updateInventory(id, res.stock_quantity, units);
+                updateProductSales(id, res.price, units);
                 reAsk();
             }
         })
@@ -56,6 +57,14 @@ function updateInventory(id, stock, units) {
     var new_stock = stock - units;
     var sql = "UPDATE products SET stock_quantity = ? WHERE item_id = ?";
     connection.query(sql, [new_stock, id], function(err) {
+        if(err) throw err;
+    })
+}
+
+function updateProductSales(id, price, units) {
+    var total_sales = price * units
+    var sql = "UPDATE products SET product_sales = ? WHERE item_id = ?";
+    connection.query(sql,[total_sales, id] , function(err) {
         if(err) throw err;
     })
 }
