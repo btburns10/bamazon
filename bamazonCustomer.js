@@ -62,11 +62,21 @@ function updateInventory(id, stock, units) {
 }
 
 function updateProductSales(id, price, units) {
-    var total_sales = price * units
-    var sql = "UPDATE products SET product_sales = ? WHERE item_id = ?";
-    connection.query(sql,[total_sales, id] , function(err) {
-        if(err) throw err;
-    })
+    var total_purchase = price * units;
+
+    connection.query("SELECT * FROM products WHERE item_id = ?", id, function(err, res) {
+        if (err) throw err;
+        var current_sales = parseFloat(res[0].product_sales);
+        sumProductSales(id, current_sales);
+    });
+
+    function sumProductSales(id, current_sales) {
+        var new_total_sales = total_purchase + current_sales;
+        var sql = "UPDATE products SET product_sales = ? WHERE item_id = ?";
+        connection.query(sql,[new_total_sales, id] , function(err) {
+            if(err) throw err;
+        })
+    }
 }
 
 function reAsk() {
