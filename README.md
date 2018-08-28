@@ -14,7 +14,7 @@ An Amazon-like, CLI storefront built with mySQL and Node.JS. The app will take i
 * Supervisors will run node bamazonSupervisor.js
 ![gif](/Assets/bamazonSupervisor.gif)
 
-##Tech
+## Tech
 * Node.JS
 * MySQL
 * NPM Dependencies
